@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_git/utils/colors.dart';
 import 'routes/routes.dart';
 import 'routes/routes_name.dart';
 import 'package:get/get.dart';
@@ -17,8 +18,10 @@ class MyApp extends StatelessWidget {
       title: 'Custom Widgets',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: primaryColor,
+
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // useMaterial3: true,
       ),
       initialRoute: Routes.home,
       getPages: AppRoutes.routes,

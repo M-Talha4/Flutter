@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_git/widgets/custom_button.dart';
 import '../widgets/custom_drawer.dart';
-import '../widgets/custom_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,11 +15,21 @@ class HomeScreen extends StatelessWidget {
         child: Scaffold(
             key: scaffoldKey,
             drawer: SizedBox(
-                height: height, width: width * 0.75, child: DrawerPage()),
-            body: ElevatedButton(
-                onPressed: () {
-                  scaffoldKey.currentState?.openDrawer();
-                },
-                child: const cText(text: "Open Drawer"))));
+                height: height, width: width * 0.75, child: const DrawerPage()),
+            body: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: width * 0.05, vertical: height * 0.03),
+              child: SizedBox(
+                width: width,
+                height: height,
+                child: Center(
+                  child: RoundRectangularButton(
+                      onTap: () {
+                        scaffoldKey.currentState?.openDrawer();
+                      },
+                      text: "Open Drawer"),
+                ),
+              ),
+            )));
   }
 }

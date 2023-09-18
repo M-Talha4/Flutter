@@ -95,25 +95,25 @@ class RoundRectangularButton extends StatelessWidget {
     final height1 = MediaQuery.of(context).size.height;
 
     return Material(
-      color: Colors.white.withOpacity(0.0),
+      color: transparentBlack,
       child: InkWell(
-        splashColor: Colors.red,
+        splashColor: deepPurple,
         onTap: () {
           onTap;
         },
         child: Container(
           decoration: BoxDecoration(
-              // boxShadow: [
-              //   BoxShadow(
-              //       offset: const Offset(0, 3),
-              //       blurRadius: 7,
-              //       spreadRadius: 5,
-              //       color: Colors.grey.withOpacity(0.5))
-              // ],
-              borderRadius: BorderRadius.circular(borderradius ?? 6),
-              color: bgcolor ?? yellow),
-          width: width ?? width1,
-          height: height ?? height1 * 0.053,
+              boxShadow: [
+                BoxShadow(
+                    offset: const Offset(0, 3),
+                    blurRadius: 7,
+                    spreadRadius: 5,
+                    color: grey.withOpacity(0.5))
+              ],
+              borderRadius: BorderRadius.circular(borderradius ?? 4),
+              color: bgcolor ?? purple),
+          width: width ?? width1 * 0.4,
+          height: height ?? height1 * 0.06,
           child: Center(
             child: Text(
               text,

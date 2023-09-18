@@ -21,7 +21,7 @@ const Color brown = Color(0xFF795548);
 const Color grey = Color(0xFF9E9E9E);
 const Color blueGrey = Color(0xFF607D8B);
 
-MaterialColor primarySwatch = MaterialColor(
+MaterialColor primaryColor = MaterialColor(
   primary.value,
   <int, Color>{
     50: primary.withOpacity(0.1),
