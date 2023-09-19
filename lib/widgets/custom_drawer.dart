@@ -7,21 +7,20 @@ class Cdrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+    final GlobalKey<ScaffoldState> scaffoldKey1 = GlobalKey<ScaffoldState>();
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: red,
-        key: scaffoldKey,
-        drawer: SizedBox(
-            height: height, width: width * 0.75, child: const DrawerPage()),
-        body: ElevatedButton(
-            onPressed: () {
-              scaffoldKey.currentState?.openDrawer();
-            },
-            child: const cText(text: "Open Drawer")),
+        key: scaffoldKey1,
+        appBar: AppBar(),
+        drawer: DrawerPage(),
+        body: Center(
+          child: ElevatedButton(
+              onPressed: () {
+                scaffoldKey1.currentState?.openDrawer();
+              },
+              child: Text("Open Drawer")),
+        ),
       ),
     );
   }
@@ -35,9 +34,9 @@ class DrawerPage extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Container(
-      width: width,
+      width: width * 0.75,
       height: height,
-      color: red,
+      color: primary,
       child: Column(
         children: [
           SizedBox(
@@ -59,10 +58,11 @@ class DrawerPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                         child: Container(
-                          color: red,
-                          child: const Icon(
+                          color: primary,
+                          child: Icon(
                             Icons.close,
                             color: grey,
+                            size: width * 0.045,
                           ),
                         ))),
                 Positioned(
@@ -84,7 +84,7 @@ class DrawerPage extends StatelessWidget {
                     child: cText(
                       text: "USER NAME",
                       color: white,
-                      width: width * 0.038,
+                      size: width * 0.038,
                     ))
               ],
             ),
@@ -92,7 +92,7 @@ class DrawerPage extends StatelessWidget {
           ListTile(
             title: cText(
               text: "Item 1",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
 
@@ -101,13 +101,14 @@ class DrawerPage extends StatelessWidget {
             //     decoration: const BoxDecoration(
             //         image: DecorationImage(
             //             image: AssetImage("images/home_drawer.png")))),
+
             minLeadingWidth: 4,
             onTap: () {},
           ),
           ListTile(
             title: cText(
               text: "Item 2",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
             minLeadingWidth: 4,
@@ -116,7 +117,7 @@ class DrawerPage extends StatelessWidget {
           ListTile(
             title: cText(
               text: "Item 3",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
             minLeadingWidth: 4,
@@ -125,7 +126,7 @@ class DrawerPage extends StatelessWidget {
           ListTile(
             title: cText(
               text: "Item 4",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
             minLeadingWidth: 4,
@@ -134,7 +135,7 @@ class DrawerPage extends StatelessWidget {
           ListTile(
             title: cText(
               text: "Item 5",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
             minLeadingWidth: 4,
@@ -143,7 +144,7 @@ class DrawerPage extends StatelessWidget {
           ListTile(
             title: cText(
               text: "Item 6",
-              width: width * 0.038,
+              size: width * 0.038,
             ),
             leading: const Icon(Icons.list),
             minLeadingWidth: 4,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_git/widgets/custom_button.dart';
+import 'package:flutter_git/utils/colors.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_text.dart';
+import '../widgets/custom_text_form_field.dart';
 import '../widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,21 +16,36 @@ class HomeScreen extends StatelessWidget {
 
     return SafeArea(
         child: Scaffold(
+            backgroundColor: white,
             key: scaffoldKey,
-            drawer: SizedBox(
-                height: height, width: width * 0.75, child: const DrawerPage()),
+            appBar: AppBar(),
+            drawer: const DrawerPage(),
             body: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.05, vertical: height * 0.03),
+                  horizontal: width * 0.1, vertical: height * 0.03),
               child: SizedBox(
                 width: width,
                 height: height,
-                child: Center(
-                  child: RoundRectangularButton(
-                      onTap: () {
-                        scaffoldKey.currentState?.openDrawer();
-                      },
-                      text: "Open Drawer"),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const cText(
+                      text: "text",
+                    ),
+                    RectangularTextFormField(
+                      showlabel: true,
+                      label: "asf",
+                      hint: "fgsg",
+                      bordercolor: black,
+                    ),
+                    Center(
+                      child: CustomButton(
+                          onTap: () {
+                            scaffoldKey.currentState?.openDrawer();
+                          },
+                          text: "Open Drawer"),
+                    ),
+                  ],
                 ),
               ),
             )));

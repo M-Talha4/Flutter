@@ -1,30 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_git/utils/colors.dart';
 
 // ignore: camel_case_types
 class cText extends StatelessWidget {
   final String text;
-  final FontWeight? fontWeight;
   final Color? color;
-  final double? width;
+  final Color? bgcolor;
+  final double? size;
+  final double? letterspacing;
+  final double? wordspacing;
   final TextAlign? textAlign;
+  final TextOverflow? overflow;
+  final TextDecoration? decoration;
+  final FontStyle? fontstyle;
+  final FontWeight? fontWeight;
+
   const cText(
       {super.key,
       required this.text,
-      this.width,
-      this.fontWeight,
       this.color,
+      this.bgcolor,
+      this.size,
+      this.letterspacing,
+      this.wordspacing,
+      this.overflow,
+      this.decoration,
+      this.fontWeight,
+      this.fontstyle,
       this.textAlign});
 
   @override
   Widget build(BuildContext context) {
-    final width1 = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
 
     return Text(
       textAlign: textAlign ?? TextAlign.start,
       text,
       style: TextStyle(
-          fontSize: width ?? width1 * 0.04,
+          fontSize: size ?? width * 0.038,
           fontWeight: fontWeight ?? FontWeight.normal,
+          backgroundColor: bgcolor ?? transparent,
+          decoration: decoration ?? TextDecoration.none,
+          overflow: overflow ?? TextOverflow.visible,
+          letterSpacing: letterspacing ?? 0,
+          wordSpacing: wordspacing ?? 0,
+          fontStyle: fontstyle ?? FontStyle.normal,
           color: color ?? Colors.black),
     );
   }
