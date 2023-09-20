@@ -12,14 +12,14 @@ class Cdrawer extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey1,
-        appBar: AppBar(),
-        drawer: DrawerPage(),
+        // appBar: AppBar(),
+        drawer: const DrawerPage(),
         body: Center(
           child: ElevatedButton(
               onPressed: () {
                 scaffoldKey1.currentState?.openDrawer();
               },
-              child: Text("Open Drawer")),
+              child: const Text("Open Drawer")),
         ),
       ),
     );

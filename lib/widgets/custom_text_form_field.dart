@@ -59,7 +59,7 @@ class RectangularTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height1 = MediaQuery.of(context).size.height;
-    return Container(
+    return SizedBox(
       height: height ?? height1 * 0.055,
       child: TextFormField(
         controller: controller,

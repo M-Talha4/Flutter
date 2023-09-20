@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_git/routes/routes_name.dart';
 import 'package:flutter_git/utils/colors.dart';
+import 'package:get/get.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text.dart';
 import '../widgets/custom_text_form_field.dart';
@@ -41,7 +43,8 @@ class HomeScreen extends StatelessWidget {
                     Center(
                       child: CustomButton(
                           onTap: () {
-                            scaffoldKey.currentState?.openDrawer();
+                            // scaffoldKey.currentState?.openDrawer();
+                            Get.toNamed(Routes.wishlist);
                           },
                           text: "Open Drawer"),
                     ),
