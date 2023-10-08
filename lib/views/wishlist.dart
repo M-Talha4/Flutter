@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_git/widgets/custom_button.dart';
 import 'package:flutter_git/widgets/custom_text.dart';
 import 'package:get/get.dart';
-
 import '../controller/homescreen_controller.dart';
-import '../widgets/custom_drawer.dart';
 
 class WishList extends StatelessWidget {
   const WishList({super.key});
@@ -34,14 +32,14 @@ class WishList extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 CustomButton(
                     onTap: () {
                       controller.increment();
                       // Get.find<HomeScreenController>().increment();
                     },
                     text: "+"),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 CustomButton(
                     onTap: () {
                       controller.decrement();

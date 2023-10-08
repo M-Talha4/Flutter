@@ -79,7 +79,6 @@ class HomeScreen extends StatelessWidget {
                   child: CustomButton(
                       onTap: () {
                         // scaffoldKey.currentState?.openDrawer();
-                        print("object");
                         homeScreenController.setCurrentPage("wishlist");
                       },
                       text: "Open WishList"),
