@@ -1,7 +1,7 @@
-import 'package:flutter_git/views/wishlist.dart';
-import 'package:flutter_git/widgets/custom_drawer.dart';
+import '../views/wishlist.dart';
+import '../widgets/custom_drawer.dart';
+import '../views/home.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import '../views/homescreen.dart';
 import 'routes_name.dart';
 
 class AppRoutes {
@@ -13,13 +13,13 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.home,
-      page: () => const HomeScreen(),
-      transition: Transition.leftToRight,
+      page: () => const Home(),
+      transition: Transition.noTransition,
     ),
     GetPage(
       name: Routes.wishlist,
       page: () => const WishList(),
-      transition: Transition.leftToRight,
+      transition: Transition.zoom,
     ),
   ];
 }

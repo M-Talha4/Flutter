@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_git/controller/whishlist_controller.dart';
 import 'package:flutter_git/widgets/custom_button.dart';
 import 'package:flutter_git/widgets/custom_text.dart';
 import 'package:get/get.dart';
 
-class WishList extends StatefulWidget {
+import '../controller/homescreen_controller.dart';
+import '../widgets/custom_drawer.dart';
+
+class WishList extends StatelessWidget {
   const WishList({super.key});
 
   @override
-  State<WishList> createState() => WishListState();
-}
-
-class WishListState extends State<WishList> {
-  @override
-  void initState() {
-    super.initState();
-    Get.put(WishListController());
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final controller = Get.put(HomeScreenController());
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -27,18 +19,44 @@ class WishListState extends State<WishList> {
       body: SizedBox(
           width: width,
           height: height,
-          child: GetBuilder<WishListController>(builder: (obj) {
+          child: GetBuilder<HomeScreenController>(builder: (obj) {
             return Center(
-              child: cText(text: obj.count.toString()),
+              child: cText(
+                text: controller.count.toString(),
+                // obj.count.toString(),
+              ),
             );
           })),
-      floatingActionButton: CustomButton(
-          onTap: () {
-            WishListController().increment();
-
-            // get.
-          },
-          text: "+"),
+      floatingActionButton: SizedBox(
+        height: height * 0.14,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              children: [
+                Expanded(child: SizedBox()),
+                CustomButton(
+                    onTap: () {
+                      controller.increment();
+                      // Get.find<HomeScreenController>().increment();
+                    },
+                    text: "+"),
+                Expanded(child: SizedBox()),
+                CustomButton(
+                    onTap: () {
+                      controller.decrement();
+                    },
+                    text: "-"),
+              ],
+            ),
+            CustomButton(
+                onTap: () {
+                  controller.setCurrentPage("home");
+                },
+                text: "Go Back"),
+          ],
+        ),
+      ),
     ));
   }
 }
